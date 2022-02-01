@@ -47,4 +47,4 @@ If more tables are needed, follow the template above and adapt it as needed.
 
 **app.js**
 
-After confirming that the `test` routes work, remove them and continue building out this app in accordance to the instructions provided. Add the appropriate files, folders, npm packages etc.
+After confirming that the `test` routes work, remove them and continue building out this app in accordance to the instructions provided. Add the appropriate files, folders, npm packages etc. Note: You do not need `pg-promise`. Use SQLite3. There are example queries in `app.js` and `schema.js` and in the [docs](https://github.com/mapbox/node-sqlite3)
