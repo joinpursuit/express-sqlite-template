@@ -49,6 +49,24 @@ app.get("/test/:id", async (req, res) => {
   }
 });
 
+app.post("/test/", async (req, res) => {
+  const query = "INSERT INTO test (name) VALUES ($name) RETURNING *";
+  const params = { $name: req.body.name };
+
+  try {
+    const allDays = await db.run(query, params, (error, rows) => {
+      res.status(200).json({ rows: rows, success: true });
+      if (error) {
+        console.log("try", error);
+      }
+    });
+  } catch (err) {
+    console.log(err);
+    // res.status(status).json(obj)
+    res.status(500).json("There was an error");
+  }
+});
+
 /////////////////////////////////////
 // REMOVE AFTER SUCCESSFUL DEPLOYMENT
 /////////////////////////////////////
